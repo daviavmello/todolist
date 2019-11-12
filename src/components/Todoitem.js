@@ -18,8 +18,11 @@ class TodoItem extends Component {
             <div style={this.getStyle()}>
             <h5>
                 <input className="form-check-input" type="checkbox" onChange={this.props.toggleComplete.bind(this, id)} /> {' '}
-                { title }</h5>
-                <button type="button" className="btn btn-danger" onClick={this.props.deleteTodo.bind(this, id)}style={btnStyle}>Delete</button>
+                { title }
+                <button type="button" className="btn btn-danger" onClick={this.props.deleteTodo.bind(this, id)}style={btnStyle}>Delete</button> 
+            
+            </h5>
+                
             </div>
         )
     }
