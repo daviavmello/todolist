@@ -13,7 +13,7 @@ class App extends Component {
       {
         id: 2,
         title: 'Hang out with roommates',
-        completed: false
+        completed: true
       },
 
       {
@@ -23,12 +23,27 @@ class App extends Component {
       },
     ]
   }
+
+  // Toggle Complete
+  toggleComplete = (id) => {
+   this.setState({ todos: this.state.todos.map(todo => {
+     if(todo.id === id) {
+       todo.completed = !todo.completed
+     }
+     return todo;
+   }) });
+  }
+
+// Uses spread operator (...)
+  deleteTodo = (id) => {
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id!==id)]})
+  }
+
   render() {
-    console.log(this.state.todos)
     return (
     <div className="container">
       <h1 className="h1 text-center">Todo List App</h1>
-      <Todos todos={this.state.todos} />
+      <Todos todos={this.state.todos} toggleComplete = {this.toggleComplete} deleteTodo = {this.deleteTodo}/> 
     </div>
   );
 }

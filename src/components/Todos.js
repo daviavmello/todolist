@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import TodoItem from './Todoitem';
+import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
@@ -8,8 +8,7 @@ class Todos extends Component {
 render() {
   return (
     this.props.todos.map((todo) => (
-      // <h3>{ todo.title }</h3>
-      <TodoItem key={todo.id} todo={todo} />
+      <TodoItem key={todo.id} todo={todo} toggleComplete = { this.props.toggleComplete } deleteTodo = { this.props.deleteTodo }/>
     )
 
     )
